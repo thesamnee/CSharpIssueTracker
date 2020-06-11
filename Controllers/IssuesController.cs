@@ -12,7 +12,7 @@ namespace IssueTracker.Controllers
         private readonly MockIssueTrackerRepo _repository = new MockIssueTrackerRepo();
         //GET api/issues
         [HttpGet]
-        public ActionResult <IEnumerable<Issue>> GettAllIssues()
+        public ActionResult <IEnumerable<Issue>> GetIssues()
         {
             var issueItems = _repository.GetAllIssues();
 
