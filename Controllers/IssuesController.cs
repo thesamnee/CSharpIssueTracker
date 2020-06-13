@@ -9,7 +9,14 @@ namespace IssueTracker.Controllers
     [ApiController]
     public class IssuesController : ControllerBase
     {
-        private readonly MockIssueTrackerRepo _repository = new MockIssueTrackerRepo();
+        private readonly IIssueTrackerRepo _repository;
+
+        public IssuesController(IIssueTrackerRepo repository)
+        {
+          _repository = repository;  
+        }
+
+        //private readonly MockIssueTrackerRepo _repository = new MockIssueTrackerRepo();
         //GET api/issues
         [HttpGet]
         public ActionResult <IEnumerable<Issue>> GetIssues()
