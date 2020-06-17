@@ -16,7 +16,6 @@ namespace IssueTracker.Controllers
           _repository = repository;  
         }
 
-        //private readonly MockIssueTrackerRepo _repository = new MockIssueTrackerRepo();
         //GET api/issues
         [HttpGet]
         public ActionResult <IEnumerable<Issue>> GetIssues()
