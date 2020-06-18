@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "K96T6I1dg+ZCT7363pydZnlO5QaRl2jdp75cIjhFA1iEl5G2eH2+W6z5kEGQnah0hxCYRxDjzBYbxLaZ6tljpg==",
+  "dgSpecHash": "2dpetv7wZvKNVmTtGI3VsAnzo+AwmcoSzoNTt6CM1LwtiCBYliIR7mZVjnt/j66GpfRoU3Yo7eV1H1UGIxULeA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sam\\IssueTracker\\IssueTracker.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Sam\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Sam\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Sam\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Sam\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Sam\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
