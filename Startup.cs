@@ -32,7 +32,7 @@ namespace IssueTracker
 
             services.AddControllers();
 
-            services.AddScoped<IIssueTrackerRepo, MockIssueTrackerRepo>();
+            services.AddScoped<IIssueTrackerRepo, SqlIssueTrackerRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
