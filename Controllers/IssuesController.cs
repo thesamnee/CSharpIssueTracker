@@ -22,11 +22,11 @@ namespace IssueTracker.Controllers
 
         //GET api/issues
         [HttpGet]
-        public ActionResult <IEnumerable<Issue>> GetIssues()
+        public ActionResult <IEnumerable<IssueReadDto>> GetIssues()
         {
             var issueItems = _repository.GetAllIssues();
 
-            return Ok(issueItems);
+            return Ok(_mapper.Map<IEnumerable<IssueReadDto>>(issueItems));
         }          
         //GET api/issues/{id}
          [HttpGet("{id}")]
