@@ -29,7 +29,11 @@ namespace IssueTracker.Controllers
         public ActionResult <Issue> GetIssueById(int id)
         {
             var issueItem = _repository.GetIssueById(id);
+            if(issueItem != null)
+            {
             return Ok(issueItem);
+            }
+            return NotFound();
         }
 
     }
