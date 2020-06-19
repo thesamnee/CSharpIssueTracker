@@ -6,6 +6,5 @@ namespace IssueTracker.Dtos
       public string Title { get; set; }
       public string Desc { get; set; }
       public string Status { get; set; }
-
   }  
 }
