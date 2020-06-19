@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using AutoMapper;
 using IssueTracker.Data;
+using IssueTracker.Dtos;
 using IssueTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,12 @@ namespace IssueTracker.Controllers
     public class IssuesController : ControllerBase
     {
         private readonly IIssueTrackerRepo _repository;
+        private readonly IMapper _mapper;
 
-        public IssuesController(IIssueTrackerRepo repository)
+        public IssuesController(IIssueTrackerRepo repository, IMapper mapper)
         {
           _repository = repository;  
+          _mapper = mapper;
         }
 
         //GET api/issues
@@ -26,12 +30,12 @@ namespace IssueTracker.Controllers
         }          
         //GET api/issues/{id}
          [HttpGet("{id}")]
-        public ActionResult <Issue> GetIssueById(int id)
+        public ActionResult <IssueReadDto> GetIssueById(int id)
         {
             var issueItem = _repository.GetIssueById(id);
             if(issueItem != null)
             {
-            return Ok(issueItem);
+            return Ok(_mapper.Map<IssueReadDto>(issueItem));
             }
             return NotFound();
         }
