@@ -46,6 +46,7 @@ namespace IssueTracker.Controllers
         {
             var issueModel = _mapper.Map<Issue>(issueCreateDto);
             _repository.CreateIssue(issueModel);
+            _repository.SaveChanges();
 
             return Ok(issueModel); 
         }
