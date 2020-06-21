@@ -8,7 +8,9 @@ namespace IssueTracker.Profiles
     {
         public IssuesProfile()
         {
+            //Source -> Destination
             CreateMap<Issue, IssueReadDto>();
+            CreateMap<IssueCreateDto, Issue>();
         }
     }
 }

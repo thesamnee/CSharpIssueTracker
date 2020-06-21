@@ -40,5 +40,15 @@ namespace IssueTracker.Controllers
             return NotFound();
         }
 
+        //POST api/issues
+        [HttpPost]
+        public ActionResult <IssueReadDto> CreateIssue(IssueCreateDto issueCreateDto)
+        {
+            var issueModel = _mapper.Map<Issue>(issueCreateDto);
+            _repository.CreateIssue(issueModel);
+
+            return Ok(issueModel); 
+        }
+
     }
 }
