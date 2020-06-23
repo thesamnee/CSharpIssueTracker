@@ -12,6 +12,7 @@ namespace IssueTracker.Profiles
             CreateMap<Issue, IssueReadDto>();
             CreateMap<IssueCreateDto, Issue>();
             CreateMap<IssueUpdateDto, Issue>();
+            CreateMap<Issue, IssueUpdateDto>();
         }
     }
 }

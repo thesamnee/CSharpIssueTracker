@@ -3,6 +3,7 @@ using AutoMapper;
 using IssueTracker.Data;
 using IssueTracker.Dtos;
 using IssueTracker.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IssueTracker.Controllers
@@ -71,7 +72,20 @@ namespace IssueTracker.Controllers
             _repository.SaveChanges();
 
             return NoContent();
+        }
 
+        //PATCH api/issues/{id}
+
+        [HttpPatch("{id}")]
+        public ActionResult PartialIssueUpdate(int id, JsonPatchDocument<IssueUpdateDto> patchDoc)
+        {
+            var issueModelFromRepo = _repository.GetIssueById(id);
+            if(issueModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            var issueToPatch = _mapper.Map<IssueUpdateDto>(issueModelFromRepo);
         }
 
     }
