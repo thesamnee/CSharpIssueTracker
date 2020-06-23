@@ -38,5 +38,11 @@ namespace IssueTracker.Data
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public void UpdateIssue(Issue iss)
+        {
+            //Nothing
+        }
+
     }
 }
