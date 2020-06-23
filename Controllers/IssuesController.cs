@@ -52,7 +52,6 @@ namespace IssueTracker.Controllers
 
 
             return CreatedAtRoute(nameof(GetIssueById), new {Id = issueReadDto.Id}, issueReadDto);
-            //return Ok(IssueReadDto); 
         }
 
     }
