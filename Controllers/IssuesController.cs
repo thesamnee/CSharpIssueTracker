@@ -29,7 +29,7 @@ namespace IssueTracker.Controllers
             return Ok(_mapper.Map<IEnumerable<IssueReadDto>>(issueItems));
         }          
         //GET api/issues/{id}
-         [HttpGet("{id}")]
+         [HttpGet("{id}", Name="GetIssueById")]
         public ActionResult <IssueReadDto> GetIssueById(int id)
         {
             var issueItem = _repository.GetIssueById(id);
@@ -47,8 +47,12 @@ namespace IssueTracker.Controllers
             var issueModel = _mapper.Map<Issue>(issueCreateDto);
             _repository.CreateIssue(issueModel);
             _repository.SaveChanges();
+            
+            var issueReadDto = _mapper.Map<IssueReadDto>(issueModel);
 
-            return Ok(issueModel); 
+
+            return CreatedAtRoute(nameof(GetIssueById), new {Id = issueReadDto.Id}, issueReadDto);
+            //return Ok(IssueReadDto); 
         }
 
     }
