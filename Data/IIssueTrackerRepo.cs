@@ -9,5 +9,6 @@ namespace IssueTracker.Data
         IEnumerable<Issue> GetAllIssues();
         Issue GetIssueById(int id);
         void CreateIssue(Issue iss);
+        void UpdateIssue(Issue iss);
     }
 }

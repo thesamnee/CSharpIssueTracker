@@ -11,6 +11,7 @@ namespace IssueTracker.Profiles
             //Source -> Destination
             CreateMap<Issue, IssueReadDto>();
             CreateMap<IssueCreateDto, Issue>();
+            CreateMap<IssueUpdateDto, Issue>();
         }
     }
 }

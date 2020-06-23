@@ -54,5 +54,25 @@ namespace IssueTracker.Controllers
             return CreatedAtRoute(nameof(GetIssueById), new {Id = issueReadDto.Id}, issueReadDto);
         }
 
+        //PUT api/issues/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateIssue(int id, IssueUpdateDto issueUpdateDto)
+        {
+            var issueModelFromRepo = _repository.GetIssueById(id);
+            if(issueModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(issueUpdateDto, issueModelFromRepo);
+
+            _repository.UpdateIssue(issueModelFromRepo);
+
+            _repository.SaveChanges();
+
+            return NoContent();
+
+        }
+
     }
 }
