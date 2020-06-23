@@ -87,10 +87,18 @@ namespace IssueTracker.Controllers
 
             var issueToPatch = _mapper.Map<IssueUpdateDto>(issueModelFromRepo);
             patchDoc.ApplyTo(issueToPatch, ModelState);
+
             if(!TryValidateModel(issueToPatch))
             {
                 return ValidationProblem(ModelState);
             }
+
+            _mapper.Map(issueToPatch, issueModelFromRepo);
+            _repository.UpdateIssue(issueModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
+
         }
 
     }
