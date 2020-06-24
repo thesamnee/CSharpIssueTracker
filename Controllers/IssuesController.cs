@@ -101,5 +101,20 @@ namespace IssueTracker.Controllers
 
         }
 
+         //DELETE api/issues/{id}
+         [HttpDelete("{id}")]
+         public ActionResult DeleteIssue(int id)
+         {
+            var issueModelFromRepo = _repository.GetIssueById(id);
+            if(issueModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            _repository.DeleteIssue(issueModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
+         }
+
     }
 }

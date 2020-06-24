@@ -24,6 +24,15 @@ namespace IssueTracker.Data
             _context.Issues.Add(iss);
         }
 
+        public void DeleteIssue(Issue iss)
+        {
+            if(iss == null)
+            {
+                throw new ArgumentNullException(nameof(iss));
+            }
+            _context.Issues.Remove(iss);
+        }
+
         public IEnumerable<Issue> GetAllIssues()
         {
             return _context.Issues.ToList();

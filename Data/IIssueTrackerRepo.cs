@@ -10,5 +10,6 @@ namespace IssueTracker.Data
         Issue GetIssueById(int id);
         void CreateIssue(Issue iss);
         void UpdateIssue(Issue iss);
+        void DeleteIssue(Issue iss);
     }
 }
